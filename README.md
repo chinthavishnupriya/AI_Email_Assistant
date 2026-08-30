@@ -322,6 +322,42 @@ docker-compose up --build
 
 See [`docs/6. Project_Architecture.md`](docs/6.%20Project_Architecture.md) for the full deployment architecture.
 
+## Proposed Use Cases
+
+The following use cases extend the existing functionality of AI Email Assistant and build on its current AI, authentication, email-processing, and history features.
+
+### 1. Email Template Management
+
+Allow users to save frequently used email formats as reusable templates.
+
+**Examples:**
+- Leave request
+- Job application
+- Client follow-up
+- Meeting request
+- Thank-you email
+
+This builds on the existing email generation, compose, authentication, and email history functionality.
+
+### 2. Advanced Email History and Search
+
+Extend the existing email history feature with search, filtering, categorization, and reuse of previously generated emails.
+
+This directly builds on the existing MySQL-based email history functionality and allows users to find and reuse previous AI-generated content.
+
+### 3. Email Quality & Improvement Assistant
+
+Combine the existing grammar checker, rewriting, and tone changer into a single email improvement workflow.
+
+Users could submit an email and receive suggestions for:
+- Grammar
+- Clarity
+- Professionalism
+- Tone
+- Overall wording
+
+This use case combines the application's existing grammar, rewrite, tone-changing, and Gemini AI capabilities rather than introducing an unrelated feature.
+
 ## Future Improvements
 
 - Email Templates
