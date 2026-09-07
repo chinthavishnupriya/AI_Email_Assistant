@@ -8,7 +8,7 @@
 (function () {
   'use strict';
 
-  const BASE_URL = window.location.origin;
+  const BASE_URL = "http://localhost:8000";
   const TOKEN_KEY = "aea_access_token";
   /* ---------------------------------------------------------
      Token storage
