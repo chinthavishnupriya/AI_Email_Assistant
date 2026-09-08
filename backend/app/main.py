@@ -16,7 +16,7 @@ from app.api.tone import router as tone_router
 
 from app.api.compose import router as compose_router
 from app.api.history import router as history_router
-
+from app.api.templates import router as templates_router
 
 app = FastAPI(title="AI Email Assistant")
 
@@ -45,3 +45,4 @@ app.include_router(grammar_router)
 app.include_router(tone_router)
 app.include_router(compose_router)
 app.include_router(history_router)
+app.include_router(templates_router)

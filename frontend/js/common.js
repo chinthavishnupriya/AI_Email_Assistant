@@ -23,6 +23,7 @@
         { href: "tone.html", label: "Tone", icon: "🎭" },
         { href: "compose.html", label: "Compose", icon: "📧" },
         { href: "history.html", label: "History", icon: "📜" },
+        { href: "templates.html", label: "Templates", icon: "📑" },
     ];
 
     const PAGE_TITLES = {
@@ -33,6 +34,7 @@
         "tone.html": "Tone Change",
         "compose.html": "Compose Email",
         "history.html": "Email History",
+        "templates.html": "Email Templates",
     };
 
     /* -----------------------------------------------------

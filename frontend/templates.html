@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Email Templates</title>
+
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/templates.css">
+
+</head>
+
+<body>
+
+    <main class="container">
+
+        <h1 class="page-title">
+            <span>📑</span> Email Templates
+        </h1>
+
+        <p class="page-subtitle">
+            Save and reuse frequently used email structures.
+        </p>
+
+        <!-- ================= TEMPLATE FORM ================= -->
+
+        <section class="template-form">
+
+            <h2 id="formTitle">Create New Template</h2>
+
+            <form id="templateForm">
+
+                <div class="form-group">
+                    <label for="templateName">
+                        Template Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="templateName"
+                        placeholder="e.g. Leave Request"
+                        minlength="2"
+                        maxlength="100"
+                        required>
+                </div>
+
+                <div class="form-group">
+                    <label for="templateCategory">
+                        Category
+                    </label>
+
+                    <select id="templateCategory" required>
+                        <option value="">Select category</option>
+                        <option value="Leave Request">Leave Request</option>
+                        <option value="Job Application">Job Application</option>
+                        <option value="Client Follow-up">Client Follow-up</option>
+                        <option value="Meeting Request">Meeting Request</option>
+                        <option value="Thank You">Thank You</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="templateContent">
+                        Email Content
+                    </label>
+
+                    <textarea
+                        id="templateContent"
+                        rows="10"
+                        minlength="10"
+                        placeholder="Write your reusable email template here..."
+                        required></textarea>
+                </div>
+
+                <div class="template-form-actions">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                        id="saveTemplateBtn">
+                        Save Template
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-secondary"
+                        id="cancelEditBtn"
+                        style="display:none;">
+                        Cancel Edit
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+        <!-- ================= TOOLBAR ================= -->
+
+        <div class="templates-toolbar">
+
+            <div>
+                <h2>Saved Templates</h2>
+            </div>
+
+            <div class="templates-filter">
+
+                <select id="templateFilter">
+                    <option value="All">All Categories</option>
+                    <option value="Leave Request">Leave Request</option>
+                    <option value="Job Application">Job Application</option>
+                    <option value="Client Follow-up">Client Follow-up</option>
+                    <option value="Meeting Request">Meeting Request</option>
+                    <option value="Thank You">Thank You</option>
+                    <option value="Other">Other</option>
+                </select>
+
+            </div>
+
+        </div>
+
+        <!-- ================= TEMPLATE LIST ================= -->
+
+        <div
+            id="templatesContainer"
+            class="templates-grid">
+        </div>
+
+    </main>
+
+    <script src="js/Api.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/templates.js"></script>
+
+</body>
+
+</html>

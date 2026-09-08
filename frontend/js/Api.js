@@ -186,7 +186,27 @@
   function getHistory() {
     return request("/history/", { method: "GET" });
   }
+  /* ---------------------------------------------------------
+     Email Templates
+     --------------------------------------------------------- */
 
+  function getTemplates() {
+    return request("/templates/");
+  }
+
+  function createTemplate(data) {
+    return requestJSON("/templates/", data);
+  }
+
+  function updateTemplate(id, data) {
+    return requestJSON(`/templates/${id}`, data, "PUT");
+  }
+
+  function deleteTemplate(id) {
+    return request(`/templates/${id}`, {
+      method: "DELETE",
+    });
+  }
   /* ---------------------------------------------------------
      Public API
      --------------------------------------------------------- */
@@ -206,5 +226,9 @@
     checkGrammar,
     changeTone,
     getHistory,
+    getTemplates,
+    createTemplate,
+    updateTemplate,
+    deleteTemplate,
   };
 })();

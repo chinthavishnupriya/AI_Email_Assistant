@@ -109,3 +109,49 @@ class EmailHistory(Base):
         TIMESTAMP,
         server_default=func.now()
     )
+# -----------------------------
+# Email Template Table
+# -----------------------------
+
+class EmailTemplate(Base):
+
+    __tablename__ = "email_templates"
+
+    id = Column(
+        Integer,
+        primary_key=True,
+        index=True
+    )
+
+    user_id = Column(
+        Integer,
+        ForeignKey("users.id"),
+        nullable=False,
+        index=True
+    )
+
+    name = Column(
+        String(100),
+        nullable=False
+    )
+
+    category = Column(
+        String(50),
+        nullable=False
+    )
+
+    content = Column(
+        Text,
+        nullable=False
+    )
+
+    created_at = Column(
+        TIMESTAMP,
+        server_default=func.now()
+    )
+
+    updated_at = Column(
+        TIMESTAMP,
+        server_default=func.now(),
+        onupdate=func.now()
+    )

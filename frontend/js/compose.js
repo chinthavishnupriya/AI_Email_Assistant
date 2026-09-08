@@ -5,7 +5,9 @@ const copyBtn = document.getElementById("copyBtn");
 
 const prompt = document.getElementById("prompt");
 const generatedEmail = document.getElementById("generatedEmail");
+const templateSelect = document.getElementById("templateSelect");
 
+let savedTemplates = [];
 function notify(message, type) {
     if (window.Toast) {
         Toast.show(message, type);
@@ -22,7 +24,53 @@ function setBusy(button, busy, idleLabel, busyLabel) {
         button.textContent = idleLabel;
     }
 }
+async function loadTemplates() {
 
+    try {
+
+        savedTemplates = await Api.getTemplates();
+
+        templateSelect.innerHTML = `
+            <option value="">Select a saved template (optional)</option>
+        `;
+
+        savedTemplates.forEach(template => {
+
+            const option = document.createElement("option");
+
+            option.value = template.id;
+            option.textContent =
+                `${template.name} — ${template.category}`;
+
+            templateSelect.appendChild(option);
+
+        });
+
+    } catch (error) {
+
+        console.error("Failed to load templates:", error);
+
+    }
+}
+
+
+templateSelect.addEventListener("change", () => {
+
+    const templateId = Number(templateSelect.value);
+
+    if (!templateId) {
+        return;
+    }
+
+    const template = savedTemplates.find(
+        item => item.id === templateId
+    );
+
+    if (template) {
+        prompt.value = template.content;
+    }
+
+});
 composeBtn.addEventListener("click", async () => {
 
     if (!prompt.value.trim()) {
@@ -87,3 +135,4 @@ copyBtn.addEventListener("click", async () => {
     }
 
 });
+loadTemplates();
