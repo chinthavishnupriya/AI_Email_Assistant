@@ -23,6 +23,8 @@ router = APIRouter(
     tags=["Templates"]
 )
 
+SAFE_ERROR_MESSAGE = "Unable to complete the template operation. Please try again."
+
 
 @router.post(
     "/",
@@ -44,11 +46,11 @@ def create_template_api(
 
         return template
 
-    except Exception as e:
+    except Exception:
 
         raise HTTPException(
             status_code=500,
-            detail=str(e)
+            detail=SAFE_ERROR_MESSAGE
         )
 
 
@@ -64,11 +66,11 @@ def get_templates(
 
         return fetch_templates(current_user.id)
 
-    except Exception as e:
+    except Exception:
 
         raise HTTPException(
             status_code=500,
-            detail=str(e)
+            detail=SAFE_ERROR_MESSAGE
         )
 
 
@@ -101,11 +103,11 @@ def get_template(
 
         raise
 
-    except Exception as e:
+    except Exception:
 
         raise HTTPException(
             status_code=500,
-            detail=str(e)
+            detail=SAFE_ERROR_MESSAGE
         )
 
 
@@ -142,11 +144,11 @@ def update_template(
 
         raise
 
-    except Exception as e:
+    except Exception:
 
         raise HTTPException(
             status_code=500,
-            detail=str(e)
+            detail=SAFE_ERROR_MESSAGE
         )
 
 
@@ -180,9 +182,9 @@ def delete_template(
 
         raise
 
-    except Exception as e:
+    except Exception:
 
         raise HTTPException(
             status_code=500,
-            detail=str(e)
+            detail=SAFE_ERROR_MESSAGE
         )
