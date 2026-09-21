@@ -3,20 +3,20 @@ from pydantic import BaseModel, Field, ConfigDict
 
 class TemplateCreate(BaseModel):
 
-    name: str = Field(..., min_length=2, max_length=100)
+    name: str = Field(..., min_length=6, max_length=100)
 
     category: str = Field(..., min_length=2, max_length=50)
 
-    content: str = Field(..., min_length=10)
+    content: str = Field(..., min_length=100)
 
 
 class TemplateUpdate(BaseModel):
 
-    name: str = Field(..., min_length=2, max_length=100)
+    name: str = Field(..., min_length=6, max_length=100)
 
     category: str = Field(..., min_length=2, max_length=50)
 
-    content: str = Field(..., min_length=10)
+    content: str = Field(..., min_length=100)
 
 
 class TemplateResponse(BaseModel):
