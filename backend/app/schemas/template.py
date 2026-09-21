@@ -1,3 +1,5 @@
+from typing import Literal
+
 from pydantic import BaseModel, Field, ConfigDict
 
 
@@ -5,7 +7,14 @@ class TemplateCreate(BaseModel):
 
     name: str = Field(..., min_length=6, max_length=100)
 
-    category: str = Field(..., min_length=2, max_length=50)
+    category: Literal[
+        "Leave Request",
+        "Job Application",
+        "Client Follow-up",
+        "Meeting Request",
+        "Thank You",
+        "Other",
+    ]
 
     content: str = Field(..., min_length=100)
 
